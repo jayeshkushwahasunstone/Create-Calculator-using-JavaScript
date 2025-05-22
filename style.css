@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #0a0a0a, #3a4452);
+  transition: background 0.4s ease, color 0.3s ease;
+  overflow: hidden;
+}
+
+.mode-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 14px;
+}
+
+.calculator {
+  border: 1px solid #717377;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  animation: floatIn 1s ease forwards;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+input {
+  width: 320px;
+  border: none;
+  padding: 24px;
+  margin: 10px;
+  background: transparent;
+  box-shadow: 0px 3px 15px rgba(84, 84, 84, 0.1);
+  font-size: 40px;
+  text-align: right;
+  color: #ffffff;
+}
+
+input::placeholder {
+  color: #ffffff;
+}
+
+button {
+  border: none;
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #5efce8, #736efe);
+  color: #000;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+button:active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  animation: ripple 0.4s linear;
+}
+
+@keyframes ripple {
+  to {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+.equalbtn {
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  color: #fff;
+  box-shadow: 0 0 10px #ff9966;
+}
+
+.operators {
+  color: #00ffae;
+}
+
+/* Animation */
+@keyframes floatIn {
+  0% {
+    transform: translateY(40px) scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Light Mode */
+body.light {
+  background: linear-gradient(45deg, #e0eafc, #cfdef3);
+  color: #000;
+}
+
+body.light .calculator {
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+  border-color: #ccc;
+}
+
+body.light input {
+  color: #000;
+}
+
+body.light input::placeholder {
+  color: #000;
+}
+
+body.light button {
+  color: #000;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light .equalbtn {
+  background: linear-gradient(to right, #36d1dc, #5b86e5);
+  color: #fff;
+}
+
+body.light .operators {
+  color: #007f5f;
+}
